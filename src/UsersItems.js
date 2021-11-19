@@ -11,7 +11,7 @@ class UsersItems extends Component {
     createUsers(user) {
         return (
             <div key={user.id} className="user">
-                <h1>{user.first_name} {user.last_name}</h1>
+                <h2>{user.first_name} {user.last_name}</h2>
                 <a href="mailto:{user.email}">{user.email}</a>
                 <img src={user.avatar} alt=""/>
             </div>
@@ -24,7 +24,10 @@ class UsersItems extends Component {
 
         return (
             <div>
-                {usersDivs}
+                <h1>Users</h1>
+                <div>
+                    {usersDivs}
+                </div>
             </div>
         );
     }
