@@ -1,5 +1,6 @@
 import {Component} from "react";
 import UsersItems from "./UsersItems";
+import "./UsersContainer.css";
 
 let xhr;
 
@@ -37,14 +38,12 @@ class UsersContainer extends Component {
                 total_pages: response.total_pages,
                 users: response.data
             });
-
-            console.log(this.state);
         }
     }
 
     render() {
         return (
-            <div>
+            <div className="flex">
                 <UsersItems users={this.state.users}/>
             </div>
         );
