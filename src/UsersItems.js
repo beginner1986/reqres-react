@@ -13,7 +13,7 @@ class UsersItems extends Component {
             <div key={user.id} className="user">
                 <h2>{user.first_name} {user.last_name}</h2>
                 <a href="mailto:{user.email}">{user.email}</a>
-                <img src={user.avatar} alt=""/>
+                <img src={user.avatar} alt="{user.first_name}"/>
             </div>
         );
     }
