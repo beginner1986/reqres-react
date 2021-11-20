@@ -1,26 +1,31 @@
 import {Component} from "react";
 import "./UsersItems.css";
+import {Card} from "react-bootstrap";
 
 class UsersItems extends Component {
     constructor(props) {
         super(props);
 
-        this.createUsers = this.createUsers.bind(this);
+        this.createCard = this.createCard.bind(this);
     }
 
-    createUsers(user) {
+    createCard(user) {
         return (
-            <div key={user.id} className="user">
-                <h2>{user.first_name} {user.last_name}</h2>
-                <a href="mailto:{user.email}">{user.email}</a>
-                <img src={user.avatar} alt="{user.first_name}"/>
-            </div>
+            <Card key={user.id} className="user" border="primary">
+                <Card.Header>{user.first_name} {user.last_name}</Card.Header>
+                <Card.Body>
+                    <Card.Text>
+                        <a href="mailto:{user.email}">{user.email}</a>
+                        <img src={user.avatar} alt="{user.first_name}"/>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
         );
     }
 
     render() {
         let usersData = this.props.users;
-        let usersDivs = usersData.map(this.createUsers);
+        let usersDivs = usersData.map(this.createCard);
 
         return (
             <div>
