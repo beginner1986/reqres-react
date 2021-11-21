@@ -1,10 +1,10 @@
 import "./UsersItems.css";
 import {Card} from "react-bootstrap";
 
-function UsersItems(props) {
+export default function UsersItems(props) {
     function createCard(user) {
         return (
-            <Card key={user.id} className="user" border="primary">
+            <Card key={user.id} className="user" bg="secondary" text="light" border="primary">
                 <Card.Body>
                     <Card.Title>{user.first_name} {user.last_name}</Card.Title>
                     <Card.Link href="mailto:{user.email}">{user.email}</Card.Link>
@@ -26,5 +26,3 @@ function UsersItems(props) {
         </div>
     );
 }
-
-export default UsersItems;
