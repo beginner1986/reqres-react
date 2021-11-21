@@ -1,50 +1,49 @@
-import {Component} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import UsersItems from "./UsersItems";
 import "./UsersContainer.css";
 
-let xhr;
 
-class UsersContainer extends Component {
-    constructor(props) {
-        super(props);
+function UsersContainer() {
+    const [page, setPage] = useState(0);
+    const [per_page, setPerPage] = useState(0);
+    const [total, setTotal] = useState(0);
+    const [total_pages, setTotalPages] = useState(0);
+    const [users, setUsers] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [error, setError] = useState(null);
 
-        this.state = {
-            page: 0,
-            per_page: 0,
-            total: 0,
-            total_pages: 0,
-            users: []
-        };
+    useEffect(() => {
+        fetch("https://reqres.in/api/users")
+            .then(res => res.json())
+            .then(
+                (response) => {
+                    setIsLoaded(true);
+                    setPage(response.page);
+                    setPerPage(response.per_page);
+                    setTotal(response.total);
+                    setTotalPages(response.total_pages);
+                    setUsers(response.data);
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
+        }, []
+    );
 
-        this.processRequest = this.processRequest.bind(this);
-    }
-
-    componentDidMount() {
-        xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://reqres.in/api/users');
-        xhr.send();
-
-        xhr.addEventListener('readystatechange', this.processRequest, false);
-    }
-
-    processRequest() {
-        if(xhr.readyState === 4 && xhr.status === 200) {
-            let response = JSON.parse(xhr.responseText);
-
-            this.setState({
-                page: response.page,
-                per_page: response.per_page,
-                total: response.total,
-                total_pages: response.total_pages,
-                users: response.data
-            });
-        }
-    }
-
-    render() {
+    if(error) {
+        return (
+            <div>Error: {error.message}</div>
+        );
+    } else if(!isLoaded) {
+        return (
+            <div>Loading...</div>
+        );
+    } else {
         return (
             <div className="flex">
-                <UsersItems users={this.state.users}/>
+                <UsersItems users={users}/>
             </div>
         );
     }
