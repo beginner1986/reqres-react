@@ -1,5 +1,4 @@
 import Pagination from "react-bootstrap/Pagination";
-// import 'bootstrap/dist/css/bootstrap.css';
 import "./PaginationBar.css";
 
 export default function PaginationBar(props) {

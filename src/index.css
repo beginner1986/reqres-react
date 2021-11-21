@@ -1,7 +1,11 @@
 body {
-  padding: 50px;
+  padding: 10px;
   background-color: #1f2021;
   font-family: sans-serif;
+  height: 90vh;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
