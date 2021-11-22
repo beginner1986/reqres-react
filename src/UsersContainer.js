@@ -7,8 +7,8 @@ const apiUrl = "https://reqres.in/api/users";
 
 export default function UsersContainer() {
     const [page, setPage] = useState(1);
-    const [per_page, setPerPage] = useState(0);
-    const [total, setTotal] = useState(0);
+    // const [per_page, setPerPage] = useState(0);
+    // const [total, setTotal] = useState(0);
     const [total_pages, setTotalPages] = useState(0);
     const [users, setUsers] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -21,8 +21,8 @@ export default function UsersContainer() {
                 (response) => {
                     setIsLoaded(true);
                     setPage(response.page);
-                    setPerPage(response.per_page);
-                    setTotal(response.total);
+                    // setPerPage(response.per_page);
+                    // setTotal(response.total);
                     setTotalPages(response.total_pages);
                     setUsers(response.data);
                 },
