@@ -1,10 +1,14 @@
 import "./UsersItems.css";
 import {Card} from "react-bootstrap";
+import UserModal from "./UserModal";
+import React, {useState} from "react";
 
 export default function UsersItems(props) {
+    const [showModal, setShowModal] = useState(false);
+
     function createCard(user) {
         return (
-            <Card key={user.id} className="user" bg="secondary" text="light" border="primary">
+            <Card key={user.id} className="user" bg="secondary" text="light" border="primary" onClick={() => setShowModal(true)}>
                 <Card.Body>
                     <Card.Title>{user.first_name} {user.last_name}</Card.Title>
                     <Card.Link href="mailto:{user.email}">{user.email}</Card.Link>
@@ -23,6 +27,7 @@ export default function UsersItems(props) {
             <div>
                 {usersDivs}
             </div>
+            <UserModal show={showModal} onHide={() => setShowModal(false)}/>
         </div>
     );
 }

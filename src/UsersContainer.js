@@ -14,6 +14,7 @@ export default function UsersContainer() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(null);
 
+
     useEffect(() => {
         fetch(apiUrl + "?page=" + page)
             .then(res => res.json())
