@@ -13,6 +13,12 @@ export default function PaginationBar(props) {
     }
 
     return (
-        <Pagination>{items}</Pagination>
+        <Pagination>
+            <Pagination.First disabled={active === 1} onClick={() => props.handleClick(1)}/>
+            <Pagination.Prev disabled={active === 1} onClick={() => props.handleClick((active - 1) > 0 ? (active - 1) : 0)}/>
+            {items}
+            <Pagination.Next disabled={active === props.total_pages} onClick={() => props.handleClick((active + 1) <= props.total_pages ? (active + 1) : props.total_pages)}/>
+            <Pagination.Last disabled={active === props.total_pages} onClick={() => props.handleClick(props.total_pages)}/>
+        </Pagination>
     );
 }
