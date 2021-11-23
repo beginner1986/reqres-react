@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import UsersItems from "./UsersItems";
-import "./UsersContainer.css";
 import PaginationBar from "./PaginationBar";
+import './UsersContainer.css';
 
 const apiUrl = "https://reqres.in/api/users";
 
@@ -45,8 +45,8 @@ export default function UsersContainer() {
         );
     } else {
         return (
-            <div className="flex">
-                <h1>Users</h1>
+            <div className="container">
+                <h1 className="users-title">Users</h1>
                 <UsersItems users={users}/>
                 <PaginationBar page={page} total_pages={total_pages} api={apiUrl} handleClick={handleClick} />
             </div>

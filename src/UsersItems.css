@@ -1,38 +1,12 @@
-.user {
-    display: inline-flex;
-    margin: 5px;
-    padding: 5px;
-    background-color: #47474a;
-    border: 7px double white;
-    border-radius: 10px;
-    width: 210px;
-    height: 240px;
-    transition: all .5s ease-out;
+.user-card {
+    width: 18rem;
+    margin: 15px;
+    padding: 15px;
 }
 
-.user:hover {
-    border-style: groove;
-    background-color: #535659;
-}
-
-.user .card-title {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.user a {
-    text-decoration: none;
-    margin: 10px;
-    color: lightblue;
-}
-
-.user a:hover {
-    text-decoration: underline;
-}
-
-.user img {
-    margin: 10px;
-    border: 2px solid gray;
-    border-radius: 10px;
-    width: 80%;
+.users-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }

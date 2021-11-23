@@ -1,6 +1,4 @@
 import {Button, Modal} from "react-bootstrap";
-import "./UserModal.css";
-import {X} from "react-bootstrap-icons";
 
 function UserModal(props) {
     return (
