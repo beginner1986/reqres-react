@@ -1,5 +1,6 @@
 import {Button, Modal} from "react-bootstrap";
 import "./UserModal.css";
+import {X} from "react-bootstrap-icons";
 
 function UserModal(props) {
     return (
@@ -9,7 +10,7 @@ function UserModal(props) {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="contained-modal-title-vcenter">
                     Modal heading
                 </Modal.Title>

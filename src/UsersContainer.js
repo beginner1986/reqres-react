@@ -46,6 +46,7 @@ export default function UsersContainer() {
     } else {
         return (
             <div className="flex">
+                <h1>Users</h1>
                 <UsersItems users={users}/>
                 <PaginationBar page={page} total_pages={total_pages} api={apiUrl} handleClick={handleClick} />
             </div>
