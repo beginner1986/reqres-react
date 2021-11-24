@@ -5,10 +5,15 @@ import "./UsersItems.css"
 
 export default function UsersItems(props) {
     const [showModal, setShowModal] = useState(false);
+    const [currentUser, setCurrentUser] = useState("");
 
     function createCard(user) {
         return (
-            <Card key={user.id} onClick={() => setShowModal(true)} className="user-card">
+
+            <Card key={user.id} onClick={() => {
+                setCurrentUser(user);
+                setShowModal(true);
+            }} className="user-card">
                 <Card.Body>
                     <Card.Title>{user.first_name} {user.last_name}</Card.Title>
                     <Card.Link href="mailto:{user.email}">{user.email}</Card.Link>
@@ -26,7 +31,7 @@ export default function UsersItems(props) {
             <div className="users-items">
                 {usersDivs}
             </div>
-            <UserModal show={showModal} onHide={() => setShowModal(false)}/>
+            <UserModal show={showModal} onHide={() => setShowModal(false)} user={currentUser}/>
         </div>
     );
 }

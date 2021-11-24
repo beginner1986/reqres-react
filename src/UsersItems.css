@@ -1,7 +1,8 @@
 .user-card {
-    width: 18rem;
-    margin: 15px;
-    padding: 15px;
+    width: 16rem;
+    margin: 5px;
+    padding: 5px;
+    transition: all .5s ease-out;
 }
 
 .users-items {
