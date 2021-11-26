@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import UsersItems from "./UsersItems";
 import PaginationBar from "./PaginationBar";
 import './UsersContainer.css';
+import {Spinner} from "react-bootstrap";
 
 const apiUrl = "https://reqres.in/api/users";
 
@@ -41,7 +42,11 @@ export default function UsersContainer() {
         );
     } else if(!isLoaded) {
         return (
-            <div>Loading...</div>
+            <div className="spinner">
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            </div>
         );
     } else {
         return (
