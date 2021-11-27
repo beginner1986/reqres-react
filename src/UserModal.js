@@ -1,10 +1,10 @@
 import {Button, Modal} from "react-bootstrap";
+import "./UserModal.css";
 
 function UserModal(props) {
     return (
         <Modal
             {...props}
-            size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
@@ -14,11 +14,15 @@ function UserModal(props) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <form>
-                    <input placeholder="email"/><br/>
-                    <input placeholder="Link to the avatar"/>
+                <form className="modal-form">
+                    <label>email:
+                        <input value={props.user.email}/><br/>
+                    </label>
+                    <label>avatar link:
+                        <input value={props.user.avatar}/>
+                    </label>
                 </form>
-                <img src={props.user.avatar} alt="Avatar"/>
+                <img src={props.user.avatar} alt="Avatar" className="avatar"/>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={props.onHide}>Close</Button>
