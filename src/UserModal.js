@@ -14,14 +14,12 @@ function UserModal(props) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <form className="modal-form">
-                    <label>email:
-                        <input value={props.user.email}/><br/>
-                    </label>
-                    <label>avatar link:
-                        <input value={props.user.avatar}/>
-                    </label>
-                </form>
+                <div className="modal-form">
+                    <div className="label">email: </div>
+                    <div>{props.user.email}</div>
+                    <div className="label">avatar link: </div>
+                    <div>{props.user.avatar}</div>
+                </div>
                 <img src={props.user.avatar} alt="Avatar" className="avatar"/>
             </Modal.Body>
             <Modal.Footer>

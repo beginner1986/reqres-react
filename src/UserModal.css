@@ -21,8 +21,9 @@
     padding: 5px 0;
 }
 
-.modal-form label {
+.label {
     padding: 5px 0;
+    font-weight: bold;
 }
 
 .avatar {
